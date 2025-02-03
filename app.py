@@ -1,5 +1,6 @@
 # set a valiarable or age,
 from tkinter.font import names
+from unicodedata import decimal
 
 age = 90
 """
@@ -20,5 +21,18 @@ print(type(age))
 _firstName = input("Enter First Name:")
 
 _age = input("Enter Age: ")
+
 print("================== Data Collected ===========================")
-print("Hello,", _firstName)
+print("Hi am ", _firstName, end="")
+print(" And I'm " + _age + " years old")
+
+'''
+All input are in string format
+to convert to data type use
+int(_age), float(_age), decimal(_age)
+Decimal fails complains of argument 1 must be a unicode character, not str
+'''
+#
+_age = float(_age, 9)
+
+print(type(_age))
