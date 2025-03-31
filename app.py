@@ -33,6 +33,6 @@ int(_age), float(_age), decimal(_age)
 Decimal fails complains of argument 1 must be a unicode character, not str
 '''
 #
-_age = float(_age, 9)
+_age = float(_age)
 
 print(type(_age))
