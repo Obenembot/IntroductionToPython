@@ -1,21 +1,20 @@
-def print_hollow_pyramid(rows):
+def printHollowPyramid(rows):
     for i in range(rows):
         # Print leading spaces
         space = " " * (rows - i + 2)
         print(space, end=" ")
 
-        # Print stars and spaces
+        # Most Important is getting the leading space right.
+        #next we are multiply our index position by 2 and adding 1.
+        # Note even though our rows i 5, the first index will be 0.
         for j in range(2 * i + 1):
-            if j == 0 or j == 2 * i or i == rows - 1:
-                print("*", end="")  # Print '*' at the borders
-            else:
-                print("*", end="")  # Print space inside
+            print("*", end="")
         print(end="\n")  # Move to the next line
 
 
 # Set number of rows
 rows = 5
-print_hollow_pyramid(rows)
+printHollowPyramid(rows)
 
 
 def printHollowBox(rows: int, width: int):
