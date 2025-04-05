@@ -22,7 +22,7 @@ def printHollowBox(rows: int, width: int):
         spaces = " " * 5  # Increase spaces for indentation
         if (i != 5):
             print(spaces + "* " + (" ") * width + "*" + spaces)
-        else:
+        else: # the else draws the vertical *
             print(spaces + ("*" * 7) + spaces)
 
 
