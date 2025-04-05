@@ -12,11 +12,6 @@ def printHollowPyramid(rows):
         print(end="\n")  # Move to the next line
 
 
-# Set number of rows
-rows = 5
-printHollowPyramid(rows)
-
-
 def printHollowBox(rows: int, width: int):
     for i in range(rows):
         spaces = " " * 5  # Increase spaces for indentation
@@ -25,6 +20,10 @@ def printHollowBox(rows: int, width: int):
         else: # the else draws the vertical *
             print(spaces + ("*" * 7) + spaces)
 
+
+# Set number of rows
+rows = 5
+printHollowPyramid(rows)
 
 # Set parameters
 rows: int = 6  # this is the number of horizontal stars
