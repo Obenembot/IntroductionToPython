@@ -23,9 +23,9 @@ def printHollowBox(rows: int, width: int):
 
 # Set number of rows
 rows = 5
-printHollowPyramid(rows)
+printHollowPyramid(rows) # Draw or print the HollowPyramid
 
 # Set parameters
 rows: int = 6  # this is the number of horizontal stars
 width: int = 4  # this refers to the distance or the empty spaces between the horizontal lines
-printHollowBox(rows, width)
+printHollowBox(rows, width) # Draw or print the HollowBox
