@@ -4,7 +4,7 @@ from collections import defaultdict
 
 # Define the Order of class we are going to use for our product
 class Product:
-    def __init__(self, productId, name, category, quantity, price):
+    def __init__(self, productId: int, name: str, category: str, quantity: int, price: float):
         self.id = productId
         self.name = name
         self.category = category
@@ -44,58 +44,60 @@ def addNewProduct():
     print("Add Product Details")
     name = input("Name: ")
     while name == "":  # Force the User to Capture Name
-        name = input("Enter Name: ")
+        name: str = input("Enter Name: ")
 
     category = input("Category: ")
     while category == "":  # Force the User to Capture Category
-        category = input("Enter Category: ")
+        category: str = input("Enter Category: ")
 
-    quantity = input("Quantity: ")
+    quantity: str = input("Quantity: ")
     while quantity == "":  # Force the User to Capture Quantity
         quantity = input("Enter Quantity: ")
 
-    price = input("Price: ")
+    price: str = input("Price: ")
     while price == "":  # Force the User to Capture Price
-        price = input("Enter Price: ")
+        price: str = input("Enter Price: ")
 
     # get and increment the last product ID
-    product_id = int(products[-1].id) + 1
-    product = Product(product_id, name, category, int(quantity), float(price))
+    product_id: int = int(products[-1].id) + 1
+    # Note: Casting of primitive data-types
+    product: Product = Product(product_id, name, category, int(quantity), float(price))
     products.append(product)
 
 
 def updateProduct():
     print("Update Product Details")
-    product_id = input("Enter product Id To Update: ")
-    name = input("Name: ")
+    product_id: str = input("Enter product Id To Update: ")
+    name: str = input("Name: ")
     while name == "":  # Force the User to Capture Name
-        name = input("Enter Name: ")
+        name: str = input("Enter Name: ")
 
-    category = input("Category: ")
+    category: str = input("Category: ")
     while category == "":  # Force the User to Capture Category
-        category = input("Enter Category: ")
+        category: str = input("Enter Category: ")
 
-    quantity = input("Quantity: ")
+    quantity: str = input("Quantity: ")
     while quantity == "":  # Force the User to Capture Quantity
-        quantity = input("Enter Quantity: ")
+        quantity: str = input("Enter Quantity: ")
 
-    price = input("Price: ")
+    price: str = input("Price: ")
     while price == "":  # Force the User to Capture Price
-        price = input("Enter Price: ")
+        price: str = input("Enter Price: ")
 
     # get and increment the last product ID
     for product in products:
         if int(product.id) == int(product_id):
-            update_product = Product(product_id, name, category, quantity, price)
+            # Note: Casting of primitive data-types
+            update_product: Product = Product(int(product_id), name, category, int(quantity), float(price))
             products.remove(product)
             products.append(update_product)
 
 
 def deleteProductById():
     print("******** Delete Product ******** ")
-    product_id = input("Enter Product ID: ")
+    product_id: str = input("Enter Product ID: ")
     while product_id == "":  # Force the User to Capture Option
-        product_id = input("Enter Product ID: ")
+        product_id: str = input("Enter Product ID: ")
     for product in products:
         if int(product.id) == int(product_id):
             products.remove(product)
@@ -111,9 +113,9 @@ def sortProductByPrice():
 
 def filterProductByCategory():
     print("********** Filter Products by Categories **********")
-    filter_field = input("Filter Category: ")
+    filter_field: str = input("Filter Category: ")
     while filter_field == "":  # Force the User to Capture Option
-        filter_field = input("Filter Category: ")
+        filter_field: str = input("Filter Category: ")
 
     filter_products = []
     for product in products:
@@ -127,13 +129,13 @@ def filterProductByCategory():
 
 
 def inventorySummary():
-    print("\n********** Product Details  **********")
+    print("\n********** Product Category Summary Report **********")
     summary = defaultdict(lambda: {"count": 0, "total_value": 0.0})
     for product in products:
-        category = product.category
-        quantity = int(product.quantity)
-        price = float(product.price)
-        total_price = quantity * price  # multiple the quantity by price to get the total
+        category: str = product.category
+        quantity: int = int(product.quantity)
+        price: float = float(product.price)
+        total_price: float = quantity * price  # multiple the quantity by price to get the total
 
         # use this approach to update the matching category.
         summary[category]["count"] += 1
@@ -150,11 +152,11 @@ readInventoryFileDate()
 count = 0
 while count < 10:
     inventoryOption()
-    option = input("Select Option: ")
+    option: str = input("Select Option: ")
     while option == "":  # Force the User to Capture Option
-        option = input("Select Option: ")
+        option: str = input("Select Option: ")
 
-    option = int(option)
+    option: int = int(option)
     if option == 1:
         addNewProduct()
     elif option == 2:
