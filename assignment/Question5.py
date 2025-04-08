@@ -19,7 +19,7 @@ class Product:
 products = []
 
 
-def readInventoryFileDate():
+def read_inventory_file_date():
     with open("inventory.txt", 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
@@ -30,7 +30,7 @@ def readInventoryFileDate():
 
 
 # This Holds the different options that a user can perform
-def inventoryOption():
+def inventory_option():
     print("1. Add a new product.")
     print("2. Update an existing product.")
     print("3. Delete a product.")
@@ -41,7 +41,7 @@ def inventoryOption():
     print("0. Exit program.")
 
 
-def addNewProduct():
+def add_new_product():
     print("Add Product Details")
     name: str = input("Name: ")
     while name == "":  # Force the User to Capture Name
@@ -66,7 +66,7 @@ def addNewProduct():
     products.append(product)
 
 
-def updateProduct():
+def update_product():
     print("Update Product Details")
     product_id: str = input("Enter product Id To Update: ")
     name: str = input("Name: ")
@@ -94,7 +94,7 @@ def updateProduct():
             products.append(update_product)
 
 
-def deleteProductById():
+def delete_product_by_id():
     print("******** Delete Product ******** ")
     product_id: str = input("Enter Product ID: ")
     while product_id == "":  # Force the User to Capture Option
@@ -104,7 +104,7 @@ def deleteProductById():
             products.remove(product)
 
 
-def sortProductByPrice():
+def sort_product_by_price():
     sorted_products = sorted(products, key=lambda p: p.price, reverse=True)
     print("\n********** Sorted Products By Price **********")
     for product in sorted_products:
@@ -112,7 +112,7 @@ def sortProductByPrice():
     print(end="\n")
 
 
-def filterProductByCategory():
+def filter_product_by_category():
     print("********** Filter Products by Categories **********")
     filter_field: str = input("Filter Category: ")
     while filter_field == "":  # Force the User to Capture Option
@@ -129,7 +129,7 @@ def filterProductByCategory():
     print()  # Add Extra line
 
 
-def inventorySummary():
+def inventory_summary():
     print("\n********** Product Category Summary Report **********")
     summary = defaultdict(lambda: {"count": 0, "total_value": 0.0})
     for product in products:
@@ -149,10 +149,10 @@ def inventorySummary():
 
 
 # Initialization of the products
-readInventoryFileDate()
+read_inventory_file_date()
 count = 0
 while count < 10:
-    inventoryOption()  # Loads the different options that a user can select.
+    inventory_option()  # Loads the different options that a user can select.
     option: str = input("Select Option: ")
     while option == "":  # Force the User to Capture Option
         option: str = input("Select Option: ")
@@ -160,19 +160,19 @@ while count < 10:
     # Based on user input/selection different method or function/activity will be perform
     option: int = int(option)
     if option == 1:
-        addNewProduct()
+        add_new_product()
     elif option == 2:
-        updateProduct()
+        update_product()
     elif option == 3:
-        deleteProductById()
+        delete_product_by_id()
     elif option == 4:
-        sortProductByPrice()
+        sort_product_by_price()
     elif option == 5:
-        filterProductByCategory()
+        filter_product_by_category()
     elif option == 6:
-        inventorySummary()
+        inventory_summary()
     elif option == 7:
-        inventorySummary()
+        inventory_summary()
     elif option == 0:
         print("Exiting program...")
         count = 20

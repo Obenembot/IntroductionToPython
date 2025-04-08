@@ -1,4 +1,4 @@
-def printHollowPyramid(rows):
+def print_hollow_pyramid(rows):
     for i in range(rows):
         # Print leading spaces
         space = " " * (rows - i + 2)
@@ -12,7 +12,7 @@ def printHollowPyramid(rows):
         print(end="\n")  # Move to the next line
 
 
-def printHollowBox(rows: int, width: int):
+def print_hollow_box(rows: int, width: int):
     for i in range(rows):
         spaces = " " * 5  # Increase spaces for indentation
         if (i != 5):
@@ -23,9 +23,9 @@ def printHollowBox(rows: int, width: int):
 
 # Set number of rows
 rows = 5
-printHollowPyramid(rows) # Draw or print the HollowPyramid
+print_hollow_pyramid(rows) # Draw or print the HollowPyramid
 
 # Set parameters
 rows: int = 6  # this is the number of horizontal stars
 width: int = 4  # this refers to the distance or the empty spaces between the horizontal lines
-printHollowBox(rows, width) # Draw or print the HollowBox
+print_hollow_box(rows, width) # Draw or print the HollowBox
