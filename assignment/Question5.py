@@ -29,6 +29,7 @@ def readInventoryFileDate():
         print(products)
 
 
+# This Holds the different options that a user can perform
 def inventoryOption():
     print("1. Add a new product.")
     print("2. Update an existing product.")
@@ -42,7 +43,7 @@ def inventoryOption():
 
 def addNewProduct():
     print("Add Product Details")
-    name = input("Name: ")
+    name: str = input("Name: ")
     while name == "":  # Force the User to Capture Name
         name: str = input("Enter Name: ")
 
@@ -151,11 +152,12 @@ def inventorySummary():
 readInventoryFileDate()
 count = 0
 while count < 10:
-    inventoryOption()
+    inventoryOption()  # Loads the different options that a user can select.
     option: str = input("Select Option: ")
     while option == "":  # Force the User to Capture Option
         option: str = input("Select Option: ")
 
+    # Based on user input/selection different method or function/activity will be perform
     option: int = int(option)
     if option == 1:
         addNewProduct()
