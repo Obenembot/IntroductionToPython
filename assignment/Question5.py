@@ -38,6 +38,7 @@ def inventory_option():
     print("5. Filter products by category.")
     print("6. Generate an inventory summary report.")
     print("7. Generate a category summary report .")
+    print("8. Display all products.")
     print("0. Exit program.")
 
 
@@ -147,7 +148,9 @@ def inventory_summary():
         print(category, data)
     print("\n")
 
-
+def display_all_products():
+    for product in products:
+        print(product)
 # Initialization of the products
 read_inventory_file_date()
 count = 0
@@ -176,5 +179,7 @@ while count < 10:
     elif option == 0:
         print("Exiting program...")
         count = 20
+    elif option == 8:
+        display_all_products()
     else:
         print("\n***Invalid Option selected***")
