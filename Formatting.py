@@ -12,7 +12,7 @@ print(value)
 
 balance = 52.983235343
 
-print("Bank Balance is %.6f" % balance)
+print("Bank Balance is %.2f" % balance)
 
 print(TAX_PERCENT)
 
