@@ -1,4 +1,9 @@
 
+
+for b in range(5):
+    print(b, end=", ")
+
+print()
 TAX_PERCENT: float = 0.15
 
 value = "Feels {} to be {}"
@@ -13,6 +18,7 @@ print(value)
 balance = 52.983235343
 
 print("Bank Balance is %.2f" % balance)
+print("Bank Balance is %s %d" % (balance ,balance))
 
 print(TAX_PERCENT)
 
