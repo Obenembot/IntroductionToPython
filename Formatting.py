@@ -1,5 +1,12 @@
 
 
+for i in [2,3,4,5,6,7,8]:
+    print(i, end=" | ")
+ab = "How are you".split()
+print(ab)
+a = 90
+
+print("How are you " , a)
 for b in range(5):
     print(b, end=", ")
 
