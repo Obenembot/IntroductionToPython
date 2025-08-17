@@ -1,51 +1,41 @@
-import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib.pyplot as plt
 
-# 1. Import the dataset
-# (Assuming you've downloaded it from Kaggle and named it 'adult.csv')
-df = pd.read_csv("adult.csv")
 
-# Quick peek at the data
-print("Initial Shape:", df.shape)
-print(df.head())
 
-# 2. Locate and address missing data points ("?" indicates missing values)
-# Replace "?" with NaN for easier handling
+def import_file():
+    df = pd.read_csv("adult.csv")
+    print("Initial Shape:", df.shape)
+    print(df.head())
+    return df
+df = import_file()
+
+
 df.replace("?", pd.NA, inplace=True)
-# df.replace("?", 0, inplace=True)
 
-# Check missing values
+def apply_computing():
+    print("Missing values per column:")
+    print(df.isna().sum())
 
-print("\nMissing values per column:")
-print(df.isna().sum())
+    for column in df.columns:
+        if df[column].dtype == "object":  # categorical
+            mode_val = df[column].mode()[0]
+            df[column] = df[column].fillna(mode_val)
+        else:# numerical
+            median_val = df[column].median()
+            df[column] = df[column].fillna(median_val)
 
-# 3. Apply imputation methods
-# Categorical: mode | Numerical: median
-for column in df.columns:
-    print('df[column]', df[column])
-    print('df[column].dtype', df[column].dtype)
-    print('df[column].values', df[column].values)
-    if df[column].dtype == "object":  # categorical
-        mode_val = df[column].mode()[0]
-        df[column] = df[column].fillna(mode_val)
-    else:# numerical
-        median_val = df[column].median()
-        df[column] = df[column].fillna(median_val)
+apply_computing()
 
 
-# 4. Eliminate irrelevant entries or duplicates
-df.drop_duplicates(inplace=True)
+def remove_duplicates():
+    df.drop_duplicates(inplace=True)
+    print("\nCleaned Shape:", df.shape)
+    print("Duplicates removed. Missing values handled.")
+    print("\nMissing values after cleaning:")
+    print(df.isna().sum())
 
-print("\nCleaned Shape:", df.shape)
-print("Duplicates removed. Missing values handled.")
-
-# Verify cleaning
-print("\nMissing values after cleaning:")
-print(df.isna().sum())
-
-print("\nAll Sum:")
-print(df.sum())
-
+remove_duplicates()
 
 print("============ Part 2 Data Visualization========")
 
@@ -56,8 +46,8 @@ def top_left_stacked_bar_chart():
     gender_income = df.groupby(["sex", "income"]).size().unstack()
 
     gender_income.plot(
-         kind="bar",
-         stacked=True,
+        kind="bar",
+        stacked=True,
         ax=axes[0, 0],
         color=["#6baed6", "#fd8d3c"]
     )
@@ -70,8 +60,8 @@ def top_right_stacked_bar_chart():
     age_hours = df.groupby(["age", "income"])["hours.per.week"].mean().unstack()
 
     age_hours.plot(
-    ax=axes[0, 1],
-    linewidth=2
+        ax=axes[0, 1],
+        linewidth=2
     )
     axes[0, 1].set_title("Age vs Average Weekly Work Hours")
     axes[0, 1].set_xlabel("Age (years)")
@@ -89,12 +79,12 @@ def bottom_left_bar_chart():
         label="<=50K"
     )
     df[df["income"] == ">50K"]["hours.per.week"].plot(
-    kind="hist",
-    ax=axes[1, 0],
-    bins=20,
-    alpha=0.6,
-    color="orange",
-    label=">50K"
+        kind="hist",
+        ax=axes[1, 0],
+        bins=20,
+        alpha=0.6,
+        color="orange",
+        label=">50K"
     )
 
     axes[1, 0].set_title("Work Hours Distribution by Income Group")
@@ -106,10 +96,10 @@ def bottom_right_bar_chart():
     edu_occ = df.groupby(["occupation", "income"])["education.num"].mean().unstack()
 
     edu_occ.plot(
-    kind="bar",
-    ax=axes[1, 1],
-    width=0.8,
-    color=["#3182bd", "#e6550d"]
+        kind="bar",
+        ax=axes[1, 1],
+        width=0.8,
+        color=["#3182bd", "#e6550d"]
     )
     axes[1, 1].set_title("Average Education Level by Occupation & Income")
     axes[1, 1].set_xlabel("Occupation")
