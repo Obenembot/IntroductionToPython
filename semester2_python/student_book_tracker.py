@@ -10,7 +10,7 @@ except ImportError:
         "Missing dependency: tkcalendar\nInstall it with: pip install tkcalendar"
     )
 
-DB_FILE: str = "library.db"
+DB_FILE: str = "../library.db"
 CURRENCY: str = "R"  # South African Currency symbol for fines
 FINE_PER_DAY = 5  # R5 per day fine for overdue books
 
