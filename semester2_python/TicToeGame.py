@@ -29,7 +29,8 @@ class Board:
         return 0 <= col <= 2 and self.grid[self.rows[row]][col] == " "
 
     def make_move(self, position, symbol):
-        row, col = position[0].upper(), int(position[1]) - 1
+        row = position[0].upper()
+        col  = int(position[1]) - 1
         self.grid[self.rows[row]][col] = symbol
 
     def get_available_moves(self):
@@ -61,7 +62,7 @@ class Board:
 
 
 
-
+# ************************************************ Games Section ************************************************
 class Game:
     def __init__(self):
         self.scoreboard = {"X": 0, "O": 0, "Draws": 0}
@@ -92,7 +93,7 @@ class Game:
             if self.board.check_winner("O"):
                 return move
             self.board.make_move(move, " ")
-        # 2. Block player win
+        # 2. Block player wins
         for move in moves:
             self.board.make_move(move, "X")
             if self.board.check_winner("X"):
@@ -144,7 +145,7 @@ class Game:
         print(f"Player O Wins: {self.scoreboard['O']}")
         print(f"Draws: {self.scoreboard['Draws']}")
 
-    def start(self):
+    def run(self):
         mode = self.choose_mode()
         player1, player2 = self.get_players(mode)
 
@@ -159,4 +160,4 @@ class Game:
 
 
 if __name__ == "__main__":
-    Game().start()
+    Game().run()
