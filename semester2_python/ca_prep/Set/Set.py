@@ -55,3 +55,10 @@ fs = frozenset([1, 2, 3, 4])
 
 # fs. add(5)  # AttributeError: 'frozenset' object has no attribute 'add'
 print("FS: ",fs)
+
+print(fruits)
+fruits.discard('orange')  # TypeError: 'set' object does not support item deletion
+print(fruits)
+
+fruits = sorted(fruits, reverse=True)
+print("sorted fruits:", fruits)

@@ -74,3 +74,8 @@ for value in student.values():
 print("=== Using keys() ===")
 for key in student.keys():
     print(key)
+
+
+del  student["remark"]
+
+print(student)
