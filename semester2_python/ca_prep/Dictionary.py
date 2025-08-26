@@ -79,3 +79,13 @@ for key in student.keys():
 del  student["remark"]
 
 print(student)
+
+
+investors = {
+    "Sampson": {"AAPL": 5, "TSLA": 2},
+    "Lebo": {"GOOG": 3, "AMZN": 1}
+}
+
+row1 = investors["Sampson"]
+for row in investors:
+    print("nested: ", row, "->", investors[row])
