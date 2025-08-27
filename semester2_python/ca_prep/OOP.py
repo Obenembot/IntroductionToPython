@@ -1,3 +1,21 @@
+"""
+1. Inheritance allows one class to reuse the properties and methods of another class.
+2. Encapsulation means hiding sensitive data and controlling access using getters and setters.
+3. Polymorphism allows different classes to implement the same method name but behave differently.
+4. Abstraction means exposing only essential features and hiding complex implementation details.
+5. Method Overriding allows a subclass to provide a specific implementation of a method already defined in its superclass.
+6. Method Overloading allows a class to have multiple methods with the same name but different parameters (not natively supported in Python).
+7. Constructors are special methods called when an object is instantiated, typically used to initialize attributes.
+8. Destructors are special methods called when an object is about to be destroyed, used for cleanup activities.
+9. Access Modifiers control the visibility of class members: public (accessible from anywhere), protected (accessible within the class and its subclasses), and private (accessible only within the class).
+10. Class Variables are shared across all instances of a class, while Instance Variables are unique to each instance.
+11. Static Methods belong to the class rather than any instance and can be called without creating an object of the class.
+12. Class Methods are methods that operate on the class itself rather than on instances, and they are defined using the @classmethod decorator.
+13. The super() function is used to call methods from a parent class in a subclass, facilitating code reuse and method overriding.
+14. The isinstance() function checks if an object is an instance of a specific class or a subclass thereof.
+15. The hasattr() function checks if an object has a specific attribute or method.
+"""
+
 class Person:
     def __init__(self, name, email, password):
         self.name = name  # Public attribute
@@ -42,5 +60,9 @@ def main():
     show_info(person)
     show_info(student)
     show_info(teacher)
+    has = hasattr(teacher, 'name')
+    print("Has attribute 'Charlie':", has)
+
 
 main()
+
