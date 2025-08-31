@@ -1,13 +1,13 @@
 """
 1. Inheritance allows one class to reuse the properties and methods of another class.
 2. Encapsulation means hiding sensitive data and controlling access using getters and setters.
-3. Polymorphism allows different classes to implement the same method name but behave differently.
+3. Polymorphism allows different classes to implement the same method but behave differently.
 4. Abstraction means exposing only essential features and hiding complex implementation details.
 5. Method Overriding allows a subclass to provide a specific implementation of a method already defined in its superclass.
 6. Method Overloading allows a class to have multiple methods with the same name but different parameters (not natively supported in Python).
 7. Constructors are special methods called when an object is instantiated, typically used to initialize attributes.
 8. Destructors are special methods called when an object is about to be destroyed, used for cleanup activities.
-9. Access Modifiers control the visibility of class members: public (accessible from anywhere), protected (accessible within the class and its subclasses), and private (accessible only within the class).
+9. Access Modifiers control the visibility of class members: public age (accessible from anywhere), protected _age (accessible within the class and its subclasses), and private __age (accessible only within the class).
 10. Class Variables are shared across all instances of a class, while Instance Variables are unique to each instance.
 11. Static Methods belong to the class rather than any instance and can be called without creating an object of the class.
 12. Class Methods are methods that operate on the class itself rather than on instances, and they are defined using the @classmethod decorator.
@@ -32,7 +32,7 @@ class Student(Person):  # Inheritance
         self.student_id = student_id
 
     def get_infor(self):  # Method overriding
-        return f"Student ID: {self.student_id}, Name: {self.name}, Email:{self._email}"
+        return f"Student ID: {self.student_id}, Name: {self.name}, Email:{self._email}, Student Id: {self.student_id}"
 
 class Teacher(Person): # Inheritance
     def __init__(self, name, email, password, subject): # Constructor
@@ -40,7 +40,7 @@ class Teacher(Person): # Inheritance
         self.subject = subject
 
     def get_infor(self): # Method overriding
-        return f"Subject: {self.subject}, Name: {self.name}, Email:{self._email}"
+        return f"Subject: {self.subject}, Name: {self.name}, Email:{self._email}, Subject: {self.subject}"
 
 
 
