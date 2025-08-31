@@ -28,6 +28,7 @@ new_List = empty_list[1:5:1]
 print(new_List)
 print(empty_list)
 
+empty_list[2] = 300
 print("Max: ", max(empty_list))
 print("MIn: ", min(empty_list))
 print("Sum: ", sum(empty_list))

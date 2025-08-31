@@ -30,20 +30,20 @@ student["grade"] = "A"
 student.update({"age": 23, "course": "Python"})
 
 Method	Description	Example
-dict.keys()	Returns all keys	student.keys()
+dict.keys()	Returns all keys student.keys()
 dict.values()	Returns all values	student.values()
 dict.items()	Returns list of (key, value) pairs	student.items()
 dict.get(key)	Gets value safely	student.get("age")
 dict.update()	Updates dictionary	student.update({...})
 dict.pop(key)	Removes key & returns value	student.pop("name")
-dict.clear()	Empties dictionary	student.clear()
+dict.clear()	Empties the dictionary	student.clear()
 
 student = {"name": "John", "age": 21, "grade": "A"}
 for key in student:
     print(key)
 """
 
-student  = {"name": "John", "age": 21, "grade": "A"}
+student = {"name": "John", "age": 21, "grade": "A"}
 
 print("student:", student)
 print("type(student):", type(student))
@@ -55,7 +55,6 @@ student.update({"age": 23, "course": "Python"})
 student["remark"] = "Passed"
 print("after update student:", student)
 
-
 person = dict(name="Alice", age=25)
 print("person:", person)
 print("===  key, student[key] ===")
@@ -65,7 +64,7 @@ for key in student:
 print("===  key, value in student.items() ===")
 for key, value in student.items():
     print(key, "->", value)
-print("=== Using items() ===")
+print("=== Using item items() ===")
 for item in student.items():
     print(item)
 print("=== Using values() ===")
@@ -75,11 +74,9 @@ print("=== Using keys() ===")
 for key in student.keys():
     print(key)
 
-
-del  student["remark"]
+del student["remark"]
 
 print(student)
-
 
 investors = {
     "Sampson": {"AAPL": 5, "TSLA": 2},
@@ -87,5 +84,8 @@ investors = {
 }
 
 row1 = investors["Sampson"]
+print("=================== investors[`Sampson`] =================== ")
+print(row1)
+print()
 for row in investors:
     print("nested: ", row, "->", investors[row])
