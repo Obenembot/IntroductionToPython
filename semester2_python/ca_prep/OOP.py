@@ -61,7 +61,7 @@ def main():
     show_info(student)
     show_info(teacher)
     has = hasattr(teacher, 'name')
-    print("Has attribute 'Charlie':", has)
+    print("Has attribute 'name':", has)
 
 
 main()
