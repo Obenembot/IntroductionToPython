@@ -27,6 +27,7 @@ fruits.update({"green"})
 for f in fruits:
     print(f, end=", ")
 
+print("\n=====================")
 a = {1, 2, 3, 4, 5}
 b = set([4, 5, 6, 7, 8])
 
