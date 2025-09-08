@@ -1,7 +1,7 @@
 _list = [10, 30, 20, 40, 50, 60]
 print(_list)
 
-print(_list[0])  # Accessing the first element
+print('Accessing : ', _list[-1])  # Accessing the first element
 
 _list[5] = 70
 
@@ -14,6 +14,7 @@ print(_list)
 _list.append(80)
 _list.sort()
 _list.sort(reverse=True)
+print('sorted: ',sorted( _list, reverse=True))  # Returns a new sorted list
 print(_list)
 
 # Creating an empty list
@@ -24,8 +25,8 @@ del empty_list[0]
 
 print(empty_list)
 
-new_List = empty_list[1:5:1]
-print(new_List)
+new_List = empty_list[0:5:2]
+print("new_List[1:5:1]: ", new_List)
 print(empty_list)
 
 empty_list[2] = 300
@@ -43,11 +44,10 @@ fruits = ["apple", "banana"]
 fruits.append("cherry")
 fruits.insert(0, "orange")  # Inserts at the specified index
 fruits.extend(["mango"])  # Extends each character of the string as a separate element
-print("Fruits: ",fruits)
+print("Fruits: ", fruits)
 
 for fruit in fruits:
     print(fruit)
-
 
 print('apple' in fruits)  # Check if 'apple' is in the list)
 """

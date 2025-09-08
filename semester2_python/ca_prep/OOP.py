@@ -16,6 +16,7 @@
 15. The hasattr() function checks if an object has a specific attribute or method.
 """
 
+
 class Person:
     def __init__(self, name, email, password):
         self.name = name  # Public attribute
@@ -34,17 +35,17 @@ class Student(Person):  # Inheritance
     def get_infor(self):  # Method overriding
         return f"Student ID: {self.student_id}, Name: {self.name}, Email:{self._email}, Student Id: {self.student_id}"
 
-class Teacher(Person): # Inheritance
-    def __init__(self, name, email, password, subject): # Constructor
-        super().__init__(name, email, password) # Call parent constructor
+
+class Teacher(Person):  # Inheritance
+    def __init__(self, name, email, password, subject):  # Constructor
+        super().__init__(name, email, password)  # Call parent constructor
         self.subject = subject
 
-    def get_infor(self): # Method overriding
+    def get_infor(self):  # Method overriding
         return f"Subject: {self.subject}, Name: {self.name}, Email:{self._email}, Subject: {self.subject}"
 
 
-
-def show_info(person): # Polymorphism
+def show_info(person):  # Polymorphism
     print(person.get_infor())
 
     if isinstance(person, Student):
@@ -52,9 +53,10 @@ def show_info(person): # Polymorphism
     elif isinstance(person, Teacher):
         print("This is a teacher.")
 
+
 def main():
     person = Person("Alice", "alice@gmail.com", "pass123")
-    student = Student("Bob", "bob@gmail.com"," student123", "S12345")
+    student = Student("Bob", "bob@gmail.com", " student123", "S12345")
     teacher = Teacher("Charlie", "charlie@gmail.com", "teach123", "Math")
 
     show_info(person)
@@ -66,3 +68,21 @@ def main():
 
 main()
 
+
+class Vehicle:
+    def __init__(self, speed=0):
+        print(f"Init vehicle {speed}")
+
+    def move(self):
+        print("Moving...")
+
+
+class Car(Vehicle):
+    def honk(self):
+        super.__init__( 100)
+        print("Beep!")
+
+
+c = Car()
+c.move()  # Inherited method
+c.honk()
