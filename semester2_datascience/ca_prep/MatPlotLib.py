@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import numpy as np
 # Sample data
 x = [1, 2, 3, 4, 5,6]
 y = [2, 4, 6, 8, 10,20]
@@ -52,3 +52,10 @@ plt.title("Scatter Plot Example")
 plt.xlabel("X Values")
 plt.ylabel("Y Values")
 plt.show()
+
+rolls = np.random.randint(1, 7, size=500)
+plt.hist(rolls, bins=6, edgecolor='black')
+print("Mean:", np.mean(rolls), "Std Dev:", np.std(rolls))
+
+
+# WHat is; java??
