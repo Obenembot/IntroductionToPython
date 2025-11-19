@@ -22,8 +22,20 @@ def add_item():
 
 # Button to add items
 add_button = tk.Button(window, text="Add to List", command=add_item, width=20, height=2)
-add_button.config(fg="red", bg="blue")
+add_button.config(fg="red", bg="yellow")
 add_button.pack(pady=5)
 
 # Run app
+
+frame = tk.Frame(window)
+frame.pack()
+
+btn1 = tk.Button(frame, text="OK")
+btn2 = tk.Button(frame, text="Cancel")
+btn1.pack(side="left")
+btn2.pack(side="left")
+
+
 window.mainloop()
+
+

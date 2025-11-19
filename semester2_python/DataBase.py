@@ -1,5 +1,6 @@
 import sqlite3 as database
 from datetime import datetime
+from xxlimited_35 import Null
 
 from faker import Faker
 
@@ -34,8 +35,8 @@ def create_tables():
 
 
 class User():
-    def __init__(self, id, name, email, date_of_birth, enrollment_date):
-        self.id = id
+    def __init__(self, name, email, date_of_birth, enrollment_date):
+        self.id = Null
         self.name = name
         self.email = email
         self.date_of_birth = date_of_birth
@@ -69,7 +70,7 @@ def prepare_insert_data():
         email = "{}{}@gmail.com".format(first_name, last_name)
         enrollment_date = datetime.now()
         fake_dob = faker.date_of_birth(minimum_age=18, maximum_age=90)  # You can specify age range
-        user = User(id, name, email, fake_dob, enrollment_date)
+        user = User( name, email, fake_dob, enrollment_date)
         users.append((name, email, fake_dob, enrollment_date))
         # users.append(user)
     return users
